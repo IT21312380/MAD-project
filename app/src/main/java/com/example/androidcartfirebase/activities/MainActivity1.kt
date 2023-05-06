@@ -1,3 +1,4 @@
+
 package com.example.androidcartfirebase.activities
 
 
@@ -17,13 +18,13 @@ class MainActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main1)
 
         btnInsertData = findViewById(R.id.btnInsertData)
         btnFetchData = findViewById(R.id.btnFetchData)
 
         btnInsertData.setOnClickListener {
-            val intent = Intent(this, InsertionActivity ::class.java)
+            val intent = Intent(this, InsertionActivity::class.java)
             startActivity(intent)
         }
 
