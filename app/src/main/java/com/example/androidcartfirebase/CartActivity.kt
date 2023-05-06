@@ -104,7 +104,7 @@ var sum = 0.0
         {
             sum+=cartModel!!.totalPrice
         }
-        txtTotal.text = java.lang.StringBuilder("Rs. ").append(sum)
+        txtTotal.text = java.lang.StringBuilder("Total Rs. ").append(sum)
         val adapter = MyCartAdapter(this,cartModelList)
         recycler_cart!!.adapter = adapter
 

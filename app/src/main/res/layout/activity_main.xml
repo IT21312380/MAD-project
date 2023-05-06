@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    
+
 
     <LinearLayout
         android:background="#417306"
@@ -16,22 +18,29 @@
         android:layout_height="?android:attr/actionBarSize">
 
     <ImageView
-        android:src="@drawable/baseline_navigate_before_24"
+        android:src="@drawable/baseline_add_circle_outline_24"
         android:layout_gravity="start|center_vertical"
         android:layout_width="0dp"
         android:layout_weight="2"
         android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:src="@drawable/baseline_supervised_user_circle_24"
+            android:layout_gravity="start|center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtPrice"
             android:textColor="@color/white"
             android:text="VEG MART"
             android:layout_gravity="center_vertical"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="0dp"
-            android:layout_weight="11"
+            android:layout_weight="10"
             android:layout_height="wrap_content"/>
 
 
@@ -64,11 +73,28 @@
     </FrameLayout>
 
     </LinearLayout>
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:id="@+id/search"
+        android:layout_below="@+id/panel"
+        app:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:queryHint="Search..."
+        android:focusable="false"
+        app:closeIcon="@drawable/baseline_clear_24"
+        app:searchIcon="@drawable/baseline_search_24"
+        android:background="@drawable/search_view_bg"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_drink"
+        android:layout_marginTop="8dp"
         android:padding="8dp"
-        android:layout_below="@+id/panel"
+        android:layout_below="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
