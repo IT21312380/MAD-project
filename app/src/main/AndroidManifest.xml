@@ -51,6 +51,19 @@
             android:name=".MainActivity"
             android:exported="false"/>
 
+        <activity
+            android:name=".activities.MainActivity1"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CusDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FetchingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InsertionActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
