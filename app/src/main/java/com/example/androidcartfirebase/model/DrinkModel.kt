@@ -6,5 +6,9 @@ class DrinkModel {
     var name:String?=null
     var image:String?=null
     var price:String?=null
+    var sellerName: String?= null
+    var sellerdiscription: String? = null
+    var noofunits: String?= null
+
 
 }

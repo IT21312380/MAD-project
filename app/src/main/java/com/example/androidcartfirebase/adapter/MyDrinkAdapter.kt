@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.EventBus
 
 class MyDrinkAdapter (
     private val context: Context,
-    private val list:List<DrinkModel>,
+    private var list:List<DrinkModel>,
     private val cartListner: ICartLoadListner
 
     ): RecyclerView.Adapter<MyDrinkAdapter.MyDrinkViewHolder>() {
@@ -65,6 +65,14 @@ class MyDrinkAdapter (
         return list.size
 
     }
+
+    fun searchDataList(searchList: List<DrinkModel>)
+    {
+        list=searchList
+        notifyDataSetChanged()
+    }
+
+
 
     override fun onBindViewHolder(holder: MyDrinkViewHolder, position: Int) {
        Glide.with(context)

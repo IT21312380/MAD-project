@@ -28,6 +28,7 @@ import com.nex3z.notificationbadge.NotificationBadge
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import androidx.appcompat.widget.SearchView
 
 class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
 
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     private lateinit var mainLayout: View
     private lateinit var badge: NotificationBadge
     private lateinit var btnCart: FrameLayout
+    private lateinit var Search: androidx.appcompat.widget.SearchView
 
     lateinit var drinkLoadListener: IDrinkLoadListener
     lateinit var cartLoadListener: ICartLoadListner
@@ -83,6 +85,11 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
         // Initialize the mainLayout variable
         mainLayout = findViewById(android.R.id.content)
 
+         Search = findViewById<androidx.appcompat.widget.SearchView>(R.id.search)
+
+
+
+
 
         countCartFromFirebase()
         loadDrinkFromFirebase()
@@ -130,6 +137,27 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
                     }
                     drinkLoadListener.onDrinkLoadSuccess(drinkModels)
 
+
+
+                    Search.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                        override fun onQueryTextSubmit(query: String?): Boolean {
+                            return false
+                        }
+
+                        override fun onQueryTextChange(newText: String?): Boolean {
+                            // Filter the drinkModels list based on the query
+                            val filteredList = drinkModels.filter { drinkModel ->
+                                drinkModel.name!!.contains(newText.orEmpty(), true)
+                            }
+
+                            // Create a new adapter with the filtered list and set it to the RecyclerView
+                            val adapter = MyDrinkAdapter(applicationContext, filteredList, cartLoadListener)
+                            recycler_drink.adapter = adapter
+
+                            return true
+                        }
+                    })
+
                 }
                 else
                 {
@@ -143,7 +171,10 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
             }
 
         })
+
+
     }
+
 
     private fun init(){
     drinkLoadListener = this
