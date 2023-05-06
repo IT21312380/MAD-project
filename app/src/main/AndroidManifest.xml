@@ -35,12 +35,12 @@
             android:name=".Login"
             android:exported="true" >
             <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-    </activity>>
+        </activity>>
         <activity
             android:name=".Bill"
             android:exported="false" />
@@ -50,6 +50,19 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"/>
+
+        <activity
+            android:name=".activities.MainActivity1"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CusDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FetchingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InsertionActivity"
+            android:exported="false" />
 
     </application>
 

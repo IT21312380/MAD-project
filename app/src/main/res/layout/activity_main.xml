@@ -28,6 +28,7 @@
             />
 
         <ImageView
+            android:id="@+id/A1"
             android:src="@drawable/baseline_supervised_user_circle_24"
             android:layout_gravity="start|center_vertical"
             android:layout_width="0dp"
@@ -46,6 +47,7 @@
 
 
         <ImageView
+            android:id="@+id/btnreview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"

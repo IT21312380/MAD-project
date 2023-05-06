@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import butterknife.BindView
-import com.bumptech.glide.Glide.init
 import com.example.androidcartfirebase.adapter.MyDrinkAdapter
 import com.example.androidcartfirebase.listener.IDrinkLoadListener
 import com.example.androidcartfirebase.model.DrinkModel
@@ -16,11 +14,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
-import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidcartfirebase.activities.MainActivity1
 import com.example.androidcartfirebase.eventbus.UpdateCartEvent
 import com.example.androidcartfirebase.listener.ICartLoadListner
 import com.example.androidcartfirebase.model.Cartmodel
@@ -29,7 +27,6 @@ import com.nex3z.notificationbadge.NotificationBadge
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import androidx.appcompat.widget.SearchView
 
 class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
 
@@ -38,6 +35,7 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     private lateinit var badge: NotificationBadge
     private lateinit var btnCart: FrameLayout
     private lateinit var Search: androidx.appcompat.widget.SearchView
+    private lateinit var btnReview: ImageView
 
     lateinit var drinkLoadListener: IDrinkLoadListener
     lateinit var cartLoadListener: ICartLoadListner
@@ -96,8 +94,12 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
 
          Search = findViewById<androidx.appcompat.widget.SearchView>(R.id.search)
 
+        btnReview = findViewById(R.id.btnreview)
 
-
+        btnReview.setOnClickListener {
+            val intent = Intent(this, MainActivity1::class.java)
+            startActivity(intent)
+        }
 
 
         countCartFromFirebase()
