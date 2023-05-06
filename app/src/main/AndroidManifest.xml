@@ -17,6 +17,18 @@
         <activity
             android:name=".CartActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.CusDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FetchingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InsertionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".MainActivity"
