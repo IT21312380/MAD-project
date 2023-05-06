@@ -17,39 +17,51 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
-    <ImageView
-        android:src="@drawable/baseline_add_circle_outline_24"
-        android:layout_gravity="start|center_vertical"
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_weight="5"
+            android:src="@drawable/baseline_add_circle_outline_24"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            />
 
         <ImageView
             android:src="@drawable/baseline_supervised_user_circle_24"
             android:layout_gravity="start|center_vertical"
             android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/txtPrice"
-            android:textColor="@color/white"
-            android:text="VEG MART"
-            android:layout_gravity="center_vertical"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:gravity="center"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"/>
+        <ImageView
+            android:src="@drawable/baseline_remove_red_eye_24"
+            android:layout_gravity="start|center_vertical"
             android:layout_width="0dp"
-            android:layout_weight="10"
-            android:layout_height="wrap_content"/>
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"/>
 
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_weight="5"
+            android:src="@drawable/baseline_rate_review_24"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"/>
 
-    <FrameLayout
+        <FrameLayout
         android:id="@+id/btnCart"
         android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="match_parent">
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+
+        android:layout_marginEnd="102dp">
+
 
         <ImageView
             android:id="@+id/cartButton"
@@ -58,7 +70,8 @@
 
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"/>
 
         <com.nex3z.notificationbadge.NotificationBadge
 
