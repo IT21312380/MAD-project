@@ -1,5 +1,6 @@
 package com.example.androidcartfirebase
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -62,9 +63,17 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val img5: ImageView = findViewById(R.id.A1)
+        img5.setOnClickListener {
+            val intent = Intent(this@MainActivity,Profile::class.java)
+            startActivity(intent)
+            }
+
         cartLoadListener = this // Initialize the cartLoadListener property
         drinkLoadListener = this // Initialize the cartLoadListener property
 
