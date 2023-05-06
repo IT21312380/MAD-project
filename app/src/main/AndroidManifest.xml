@@ -14,32 +14,43 @@
         android:theme="@style/Theme.AndroidCartFirebase"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity1"
+            android:name=".UpdateProfile"
             android:exported="false" />
         <activity
-            android:name=".CartActivity"
+            android:name=".RegistrationModel"
             android:exported="false" />
         <activity
-            android:name=".activities.CusDetails"
+            android:name=".Registration"
             android:exported="false" />
         <activity
-            android:name=".activities.FetchingActivity"
+            android:name=".Profile"
             android:exported="false" />
         <activity
-            android:name=".activities.InsertionActivity"
+            android:name=".PaymentModel"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity1"
-            android:exported="true" />
+            android:name=".Payment"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".Login"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
+        </activity>>
+        <activity
+            android:name=".Bill"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

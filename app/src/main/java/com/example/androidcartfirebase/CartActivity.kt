@@ -1,5 +1,6 @@
 package com.example.androidcartfirebase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -30,12 +31,22 @@ class CartActivity : AppCompatActivity(), ICartLoadListner {
     private lateinit var btnBack: ImageView
     private lateinit var txtTotal: TextView
     private lateinit var mainLayout: View
+    private lateinit var btnsubmit: Button
 
 
     override fun onStart() {
         super.onStart()
         EventBus.getDefault().register(this)
+
+        btnsubmit = findViewById(R.id.btnPay)
+
+        btnsubmit.setOnClickListener {
+            val intent = Intent(this, Payment::class.java)
+            startActivity(intent)
+        }
     }
+
+
 
     override fun onStop() {
         super.onStop()

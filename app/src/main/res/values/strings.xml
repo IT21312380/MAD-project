@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">AndroidCartFirebase</string>
+
+
+    <string name="cardNumber">Card Number</string>
+    <string name="cExpDate">MM/YY</string>
+    <string name="cvc">CVC</string>
+    <string name="payAmount">Amount</string>
+    <string name="dDateInput">DD/MM</string>
+    <string name="btnPay">Confirm and Pay</string>
+    <string name="totAmount">Total Amount</string>
+    <string name="calButton">Calculate Total Amount</string>
+    <string name="BDDate">Delivery Date</string>
+    <string name="btnOk">OK</string>
+    <string name="BPaymentID" />
+    <string name="paymentID">Payment ID</string>
+    <string name="rTopic">Sign up Here</string>
+    <string name="rName">Enter Your Name Here</string>
+    <string name="rNIC">Enter Your NIC Here</string>
+    <string name="rAddress">Enter Your Address Here</string>
+    <string name="rPhoneNumber">Enter Your Phone Number Here</string>
+    <string name="rEmail">Enter Your Email Here</string>
+    <string name="rSubmit">Submit</string>
+    <string name="lName">User Name</string>
+    <string name="rPAssword">Enter Your Password Here</string>
+    <string name="lEmail">Email</string>
+    <string name="lPassword">Password</string>
+    <string name="lBtnLogin">Login</string>
+    <string name="lBtnSignup">Signup</string>
+    <string name="lBtnLogin2">Log in</string>
+    <string name="lBtnSignup2">Sign up</string>
+    <string name="pProfileTopic">Edit Profile</string>
+    <string name="pBtnUpdate">Update Profile</string>
+    <string name="pBtnDelete">Delete Profile</string>
+    <string name="title_activity_bill">Bill</string>
+
 </resources>
