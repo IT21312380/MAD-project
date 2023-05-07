@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertionActivity1">
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="385dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="New Inventory"
+        android:textColor="#417306"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etSellerName"
+        android:layout_width="374dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="39dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Seller's Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <EditText
+        android:id="@+id/etdiscription"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="31dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSellerName" />
+
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="372dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Product Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etdiscription" />
+
+    <EditText
+        android:id="@+id/etUnitPrice"
+        android:layout_width="373dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Unit Price (1KG)"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etProductName" />
+
+    <EditText
+        android:id="@+id/etnoofunits"
+        android:layout_width="377dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="No Of Units"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="28sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUnitPrice" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="291dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="49dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Submit"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnoofunits" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

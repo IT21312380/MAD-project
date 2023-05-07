@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/etSellname"
+        android:layout_width="385dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:hint="Employee Name"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/noofunits"
+        android:layout_width="388dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Employee Age"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/unitcost"
+        android:layout_width="388dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="unit cost"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/discription"
+        android:layout_width="388dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Employee Salary"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/productname"
+        android:layout_width="383dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Employee Salary"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnUpdateData"
+        android:layout_width="220dp"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#38B10D"
+        android:text="Update Data"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
