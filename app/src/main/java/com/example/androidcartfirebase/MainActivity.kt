@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidcartfirebase.activities.FetchingActivity1
+
 import com.example.androidcartfirebase.activities.MainActivity1
 import com.example.androidcartfirebase.adapter.MyDrinkAdapter
 import com.example.androidcartfirebase.eventbus.UpdateCartEvent
@@ -35,6 +37,8 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     private lateinit var btnCart: FrameLayout
     private lateinit var Search: androidx.appcompat.widget.SearchView
     private lateinit var btnReview: ImageView
+    private lateinit var btninsert :ImageView
+    private lateinit var btnretriving :ImageView
 
     lateinit var drinkLoadListener: IDrinkLoadListener
     lateinit var cartLoadListener: ICartLoadListner
@@ -65,6 +69,20 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btninsert = findViewById(R.id.insert)
+        btnretriving= findViewById(R.id.insert2)
+
+        btninsert.setOnClickListener {
+            val intent = Intent(this@MainActivity, InsertionActivity1::class.java)
+            startActivity(intent)
+        }
+        btnretriving.setOnClickListener {
+            val intent = Intent(this@MainActivity, FetchingActivity1::class.java)
+            startActivity(intent)
+        }
+
+
         val cusId = intent.getStringExtra("cusId") ?: ""
         val img5: ImageView = findViewById(R.id.A1)
         img5.setOnClickListener {

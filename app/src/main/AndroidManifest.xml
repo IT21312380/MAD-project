@@ -63,7 +63,16 @@
         <activity
             android:name=".activities.InsertionActivity"
             android:exported="false" />
+        <activity
+            android:name=".SellerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FetchingActivity1"
+            android:exported="false" />
 
+        <activity
+            android:name=".InsertionActivity1"
+            android:exported="false" />
     </application>
 
 </manifest>

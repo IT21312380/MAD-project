@@ -18,6 +18,7 @@
         android:layout_height="?android:attr/actionBarSize">
 
         <ImageView
+            android:id="@+id/insert"
             android:layout_width="27dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
@@ -37,6 +38,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"/>
         <ImageView
+            android:id="@+id/insert2"
             android:src="@drawable/baseline_remove_red_eye_24"
             android:layout_gravity="start|center_vertical"
             android:layout_width="0dp"
