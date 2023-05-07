@@ -82,7 +82,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="@string/rEmail"
+        android:hint="Enter Username"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

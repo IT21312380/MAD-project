@@ -47,16 +47,14 @@ class Registration : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-        etRBtnSubmit.setOnClickListener{
+        etRBtnSubmit.setOnClickListener {
             val cusId = dbRef.push().key!!
             saveRegistrationData(cusId)
 
-            val intent = Intent(this, Login::class.java)
-            intent.putExtra("cusId", cusId)
-            startActivity(intent)
+
         }
+
+
 
     }
 
@@ -72,36 +70,42 @@ class Registration : AppCompatActivity() {
             etRName.error = "Please enter Your Name"
             return;
         }
-        if (nic.isEmpty()){
+        else if (nic.isEmpty()){
             etRNIC.error = "Please enter your NIC"
             return;
         }
-        if (address.isEmpty()){
+        else if (address.isEmpty()){
             etRAddress.error = "Please enter your Address"
             return;
         }
-        if (phoneNumber.isEmpty()){
+        else if (phoneNumber.isEmpty()){
             etRPhoneNumber.error = "Please enter your Phone Number"
             return;
         }
-        if (email.isEmpty()){
+        else if (email.isEmpty()){
             etREmail.error = "Please enter your Email"
             return;
         }
-        if (password.isEmpty()){
+        else if (password.isEmpty()){
             etRPassword.error = "Please enter your Password"
             return;
         }
 
-        if (etRNIC.length() < 12) {
+        else if (etRNIC.length() < 12) {
             etRNIC.error = "Enter a valid NIC"
             return;
         }
 
-        if (etRPhoneNumber.length() < 10) {
+        else if (etRPhoneNumber.length() < 10) {
             etRPhoneNumber.error = "Enter a valid phone number"
             return;
         }
+        else{
+            val intent = Intent(this, Login::class.java)
+            intent.putExtra("cusId", cusId)
+            startActivity(intent)
+            }
+
 
         val customer = RegistrationModel(
             cusId,

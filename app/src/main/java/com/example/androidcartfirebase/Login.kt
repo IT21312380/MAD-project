@@ -49,11 +49,11 @@ class Login : AppCompatActivity() {
                 dbRef.orderByChild("email").equalTo(email)
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                for (userSnapshot in dataSnapshot.children) {
+                                    if (dataSnapshot.exists()) {
+                                        for (userSnapshot in dataSnapshot.children) {
                                     val user = userSnapshot.getValue(RegistrationModel::class.java)
                                     if (user?.password == password) {
-                                        val intent = Intent(this@Login,Profile::class.java)
+                                        val intent = Intent(this@Login,MainActivity::class.java)
                                         intent.putExtra("cusId", user?.cusId)
                                         startActivity(intent)
                                         finish()
