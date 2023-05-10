@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".BuyerLogin">
 
     <ImageView
         android:id="@+id/imageView10"
@@ -14,31 +14,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/title_text_view4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="-400dp"
-        android:layout_marginTop="14dp"
-        android:text="Seller Login "
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:ignore="MissingConstraints" />
-
     <EditText
         android:id="@+id/etLEmail"
         android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="60dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="60dp"
         android:ems="10"
         android:hint="@string/lPassword"
@@ -74,20 +58,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLPassword" />
-
-    <TextView
-        android:id="@+id/title_text_view3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="-340dp"
-        android:layout_marginTop="555dp"
-        android:text="If you don't have an account let's create one "
-        android:textColor="#000000"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/etLBtnSignup"

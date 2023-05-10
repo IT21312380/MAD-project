@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class Login : AppCompatActivity() {
+class BuyerLogin : AppCompatActivity() {
 
     private lateinit var etLEmail: EditText
     private lateinit var etLPassword: EditText
@@ -35,7 +35,7 @@ class Login : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("Customers")
 
         etLBtnSignup.setOnClickListener {
-            val intent = Intent(this@Login, Registration::class.java)
+            val intent = Intent(this@BuyerLogin, Registration::class.java)
             startActivity(intent)
         }
 
@@ -49,17 +49,17 @@ class Login : AppCompatActivity() {
                 dbRef.orderByChild("email").equalTo(email)
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                    if (dataSnapshot.exists()) {
-                                        for (userSnapshot in dataSnapshot.children) {
+                            if (dataSnapshot.exists()) {
+                                for (userSnapshot in dataSnapshot.children) {
                                     val user = userSnapshot.getValue(RegistrationModel::class.java)
                                     if (user?.password == password) {
-                                        val intent = Intent(this@Login,MainActivity::class.java)
+                                        val intent = Intent(this@BuyerLogin,MainActivityBuy::class.java)
                                         intent.putExtra("cusId", user?.cusId)
                                         startActivity(intent)
                                         finish()
                                     } else {
                                         Toast.makeText(
-                                            this@Login,
+                                            this@BuyerLogin,
                                             "Invalid Password",
                                             Toast.LENGTH_LONG
                                         ).show()
@@ -67,7 +67,7 @@ class Login : AppCompatActivity() {
                                 }
                             } else {
                                 Toast.makeText(
-                                    this@Login,
+                                    this@BuyerLogin,
                                     "User not found",
                                     Toast.LENGTH_LONG
                                 ).show()
@@ -76,7 +76,7 @@ class Login : AppCompatActivity() {
 
                         override fun onCancelled(databaseError: DatabaseError) {
                             Toast.makeText(
-                                this@Login,
+                                this@BuyerLogin,
                                 "Error ${databaseError.message}",
                                 Toast.LENGTH_LONG
                             ).show()

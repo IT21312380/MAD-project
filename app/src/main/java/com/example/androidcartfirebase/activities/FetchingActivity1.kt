@@ -50,6 +50,7 @@ class FetchingActivity1 : AppCompatActivity() {
                selList.clear()
                 if(snapshot.exists())
                 {
+
                     for(sellsnap in snapshot.children)
                     {
                  val selData = sellsnap.getValue(InvenoryModel::class.java)

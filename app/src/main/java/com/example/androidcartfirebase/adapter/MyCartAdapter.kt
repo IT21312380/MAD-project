@@ -19,7 +19,8 @@ import org.greenrobot.eventbus.EventBus
 
 class MyCartAdapter (
     private val context: Context,
-    private val cartModelList: List<Cartmodel>
+    private val cartModelList: List<Cartmodel>,
+    private val cusId: String
 
 
         ):RecyclerView.Adapter<MyCartAdapter.MyCartViewHolder>() {
@@ -77,7 +78,7 @@ class MyCartAdapter (
                     notifyItemRemoved(position)
                     FirebaseDatabase.getInstance()
                         .getReference("Cart")
-                        .child("UNIQUE_USER_ID")
+                        .child(cusId)
                         .child(cartModelList[position].key!!)
                         .removeValue()
                         .addOnSuccessListener { EventBus.getDefault().postSticky(UpdateCartEvent()) }
@@ -111,7 +112,7 @@ class MyCartAdapter (
     private fun updateFirebase(cartmodel: Cartmodel) {
         FirebaseDatabase.getInstance()
             .getReference("Cart")
-            .child("UNIQUE_USER_ID")
+            .child(cusId)
             .child(cartmodel.key!!)
             .setValue(cartmodel)
             .addOnSuccessListener { EventBus.getDefault().postSticky(UpdateCartEvent()) }

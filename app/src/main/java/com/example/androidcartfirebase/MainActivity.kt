@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     lateinit var cartLoadListener: ICartLoadListner
     private val mDatabase: DatabaseReference? = null
 
+    lateinit var cusId:String
 
     override fun onStart() {
         super.onStart()
@@ -69,6 +70,8 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+         cusId = intent.getStringExtra("cusId") ?: ""
+
 
         btninsert = findViewById(R.id.insert)
         btnretriving= findViewById(R.id.insert2)
@@ -83,12 +86,15 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
         }
 
 
-        val cusId = intent.getStringExtra("cusId") ?: ""
+
         val img5: ImageView = findViewById(R.id.A1)
         img5.setOnClickListener {
                         val intent = Intent(this@MainActivity, Profile::class.java)
-                        intent.putExtra("cusId", cusId)
-                        startActivity(intent)
+
+               val adapter = MyDrinkAdapter(this, ArrayList(), cartLoadListener, cusId)
+            intent.putExtra("cusId", cusId)
+
+            startActivity(intent)
 
         }
 
@@ -102,7 +108,7 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
                     recycler_drink.layoutManager = LinearLayoutManager(this)
 
                     // Initialize the adapter with an empty list
-                    val adapter = MyDrinkAdapter(this, ArrayList(), this)
+                    val adapter = MyDrinkAdapter(this, ArrayList(), this,cusId)
 
                     // Set the adapter to the RecyclerView
                     recycler_drink.adapter = adapter
@@ -133,7 +139,8 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
                     val cartModels:MutableList<Cartmodel> = ArrayList()
                     FirebaseDatabase.getInstance()
                         .getReference("Cart")
-                        .child("UNIQUE_USER_ID")
+
+                        .child(cusId )
                         .addListenerForSingleValueEvent(object : ValueEventListener{
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 for(cartSnapshot in snapshot.children)
@@ -182,7 +189,8 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
                                             }
 
                                             // Create a new adapter with the filtered list and set it to the RecyclerView
-                                            val adapter = MyDrinkAdapter(applicationContext, filteredList, cartLoadListener)
+                                             cusId = intent.getStringExtra("cusId") ?: ""
+                                            val adapter = MyDrinkAdapter(applicationContext, filteredList, cartLoadListener,cusId)
                                             recycler_drink.adapter = adapter
 
                                             return true
@@ -215,12 +223,17 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
                     recycler_drink.layoutManager = gridlayoutManager
                     recycler_drink.addItemDecoration(SpaceItemDecoration())
                     btnCart = findViewById(R.id.btnCart)
-                    btnCart.setOnClickListener{startActivity(Intent(this@MainActivity,CartActivity::class.java))}
+                    btnCart.setOnClickListener{
+                        val intent = Intent(this@MainActivity, CartActivity::class.java)
+                        intent.putExtra("cusId", cusId)
+                        startActivity(intent)
+                    }
 
                 }
 
                 override fun onDrinkLoadSuccess(drinkModelList: List<DrinkModel>?) {
-                    val adapter = MyDrinkAdapter(this,drinkModelList!!,cartLoadListener)
+                    val cusId = intent.getStringExtra("cusId") ?: ""
+                    val adapter = MyDrinkAdapter(this,drinkModelList!!,cartLoadListener, cusId )
                     recycler_drink.adapter= adapter
                     adapter.notifyDataSetChanged()
                 }

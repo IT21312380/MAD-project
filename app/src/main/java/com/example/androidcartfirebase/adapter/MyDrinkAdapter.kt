@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.androidcartfirebase.R
+import com.example.androidcartfirebase.RegistrationModel
 import com.example.androidcartfirebase.eventbus.UpdateCartEvent
 import com.example.androidcartfirebase.listener.ICartLoadListner
 import com.example.androidcartfirebase.listener.IRecyclerClickListner
@@ -23,9 +24,12 @@ import org.greenrobot.eventbus.EventBus
 class MyDrinkAdapter (
     private val context: Context,
     private var list:List<DrinkModel>,
-    private val cartListner: ICartLoadListner
+    private val cartListner: ICartLoadListner,
+    private val cusId: String
 
-    ): RecyclerView.Adapter<MyDrinkAdapter.MyDrinkViewHolder>() {
+
+
+): RecyclerView.Adapter<MyDrinkAdapter.MyDrinkViewHolder>() {
 
     class MyDrinkViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
@@ -89,10 +93,14 @@ class MyDrinkAdapter (
         })
     }
 
+
+
     private fun addToCart(drinkModel: DrinkModel) {
         val userCart = FirebaseDatabase.getInstance()
             .getReference("Cart")
-            .child("UNIQUE_USER_ID")// here is user id, you can use afirebase auth uid here
+
+            .child(cusId)
+        // here is user id, you can use afirebase auth uid here
 
         userCart.child(drinkModel.key!!)
             .addListenerForSingleValueEvent(object: ValueEventListener{

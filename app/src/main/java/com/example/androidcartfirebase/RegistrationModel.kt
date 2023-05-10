@@ -1,7 +1,10 @@
 package com.example.androidcartfirebase
 
+import com.example.androidcartfirebase.adapter.MyDrinkAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
+
+
 
 data class RegistrationModel(
     var cusId: String? = "",
@@ -11,6 +14,9 @@ data class RegistrationModel(
     var phoneNumber: String? = "",
     var email: String? = "",
     var password: String? = ""
+
+
+
 ) {
     constructor() : this("", "", "", "", "", "", "")
 }
