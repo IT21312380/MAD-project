@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertionActivity1">
+
+
+    <EditText
+        android:id="@+id/etSellerName"
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Seller's Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="385dp"
+        android:layout_height="69dp"
+        android:gravity="center"
+        android:text="New Inventory"
+        android:textColor="#417306"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp" />
+
+    <EditText
+        android:id="@+id/key"
+        android:layout_width="406dp"
+        android:layout_height="50dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="key"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etdiscription"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Product Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <EditText
+        android:id="@+id/etUnitPrice"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Unit Price (1KG)"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <EditText
+        android:id="@+id/imgupd"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="Image URL"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etnoofunits"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:hint="No Of Units"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.866"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-5dp" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="296dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Submit"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991"
+        tools:ignore="DuplicateIds,MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
