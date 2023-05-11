@@ -3,6 +3,7 @@ package com.example.androidcartfirebase
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -42,14 +43,64 @@ class InsertionActivity1 : AppCompatActivity() {
         // Retrieve the key of the existing node
         val existingKey = intent.getStringExtra("key")
 
+
         saveButton.setOnClickListener {
-            saveDataToFirebase(existingKey)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            if (validateInput()) {
+                saveDataToFirebase(existingKey)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
 
     }
+
+    private fun validateInput(): Boolean {
+        if (TextUtils.isEmpty(name.text.toString().trim())) {
+            name.error = "Please enter product name"
+            name.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(image.text.toString().trim())) {
+            image.error = "Please enter image URL"
+            image.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(price.text.toString().trim())) {
+            price.error = "Please enter unit price"
+            price.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(sellerName.text.toString().trim())) {
+            sellerName.error = "Please enter seller name"
+            sellerName.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(sellerdiscription.text.toString().trim())) {
+            sellerdiscription.error = "Please enter seller description"
+            sellerdiscription.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(noofunits.text.toString().trim())) {
+            noofunits.error = "Please enter number of units"
+            noofunits.requestFocus()
+            return false
+        }
+
+        if (TextUtils.isEmpty(mobile.text.toString().trim())) {
+            mobile.error = "Please enter mobile number"
+            mobile.requestFocus()
+            return false
+        }
+
+        return true
+    }
+
 
     private fun saveDataToFirebase(existingKey: String?) {
         val name = name.text.toString().trim()
