@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.activities.SellerDetailsActivity">
+    tools:context=".SellerDetailsActivity">
 
     <Button
         android:id="@+id/btnUpdate"
@@ -70,6 +70,8 @@
                     android:text="Sellers name"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
+
+
 
             </LinearLayout>
 
@@ -301,5 +303,15 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="151dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/common_google_signin_btn_icon_dark_focused"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDelete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

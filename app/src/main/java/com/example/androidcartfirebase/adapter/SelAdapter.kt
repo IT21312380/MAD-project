@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidcartfirebase.R
+import com.example.androidcartfirebase.model.DrinkModel
 import com.example.androidcartfirebase.model.InvenoryModel
 
-class SelAdapter (private val selList:ArrayList<InvenoryModel>):
+class SelAdapter (private val selList:ArrayList<DrinkModel>):
     RecyclerView.Adapter<SelAdapter.ViewHolder>(){
 
     private lateinit var mListener: onItemClickListener

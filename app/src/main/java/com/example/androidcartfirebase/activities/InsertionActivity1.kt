@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class InsertionActivity1 : AppCompatActivity() {
 
-    private lateinit var key: EditText
     private lateinit var name: EditText
     private lateinit var image: EditText
     private lateinit var price: EditText
@@ -27,7 +26,6 @@ class InsertionActivity1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion_1)
 
-        key = findViewById(R.id.key)
         name = findViewById(R.id.etProductName)
         image = findViewById(R.id.imgupd)
         price = findViewById(R.id.etUnitPrice)
@@ -38,14 +36,13 @@ class InsertionActivity1 : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             saveDataToFirebase()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+            val intent = Intent(this, MainActivity1::class.java)
+            startActivity(intent)
 
         }
     }
 
     private fun saveDataToFirebase() {
-        val key = key.text.toString().trim()
         val name = name.text.toString().trim()
         val img = image.text.toString().trim()
         val price = price.text.toString().trim()
@@ -56,12 +53,10 @@ class InsertionActivity1 : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val productsRef = database.getReference("Drink")
 
-        val productId = productsRef.push().key
-            ?: // Handle the error
-            return
+        val productId = productsRef.push().key ?: return
 
         val product = DrinkModel(
-            key = key,
+            key = productId,
             name = name,
             image = img,
             price = price,
