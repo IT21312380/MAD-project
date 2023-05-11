@@ -5,20 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Payment">
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#417306"
+        android:orientation="horizontal"
+        android:weightSum="16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_marginStart="45dp"
+            android:text="Make you'r Payment"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/etCardNumber"
         android:layout_width="0dp"
         android:layout_height="62dp"
-        android:maxLength="12"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/cardNumber"
         android:inputType="number"
+        android:maxLength="12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

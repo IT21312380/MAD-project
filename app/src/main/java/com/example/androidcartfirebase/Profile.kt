@@ -106,7 +106,7 @@ class Profile : AppCompatActivity() {
         mTask.addOnSuccessListener {
             Toast.makeText(this, "Employee data deleted", Toast.LENGTH_LONG).show()
 
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, welcomelog::class.java)
             finish()
             startActivity(intent)
         }.addOnFailureListener{ error ->

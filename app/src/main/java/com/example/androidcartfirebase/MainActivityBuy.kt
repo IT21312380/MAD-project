@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,7 +38,7 @@ class MainActivityBuy : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner
     private lateinit var btnCart: FrameLayout
     private lateinit var Search: androidx.appcompat.widget.SearchView
     private lateinit var btnReview: ImageView
-    private lateinit var btninsert :ImageView
+
     private lateinit var btnretriving :ImageView
 
     lateinit var drinkLoadListener: IDrinkLoadListener
@@ -69,17 +70,14 @@ class MainActivityBuy : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_buy)
         cusId = intent.getStringExtra("cusId") ?: ""
 
 
-        btninsert = findViewById(R.id.insert)
+
         btnretriving= findViewById(R.id.insert2)
 
-        btninsert.setOnClickListener {
-            val intent = Intent(this@MainActivityBuy, InsertionActivity1::class.java)
-            startActivity(intent)
-        }
+
         btnretriving.setOnClickListener {
             val intent = Intent(this@MainActivityBuy, FetchingActivity1::class.java)
             startActivity(intent)
@@ -97,6 +95,7 @@ class MainActivityBuy : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner
             startActivity(intent)
 
         }
+
 
         cartLoadListener = this // Initialize the cartLoadListener property
         drinkLoadListener = this // Initialize the cartLoadListener property
@@ -125,6 +124,24 @@ class MainActivityBuy : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner
         btnReview.setOnClickListener {
             val intent = Intent(this, MainActivity1::class.java)
             startActivity(intent)
+        }
+        val logoutImageView: ImageView = findViewById(R.id.logout)
+
+        logoutImageView.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Logout")
+            builder.setMessage("Are you sure you want to log out?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                val intent = Intent(this@MainActivityBuy, welcomelog::class.java)
+                startActivity(intent)
+
+            }
+            builder.setNegativeButton("Cancel") { dialog, _ ->
+                // User clicked Cancel, dismiss dialog
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
 
 

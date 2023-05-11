@@ -26,7 +26,7 @@ class BuyerLogin : AppCompatActivity() {
 
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.buylogin)
         etLEmail = findViewById(R.id.etLEmail)
         etLPassword = findViewById(R.id.etLPassword)
         etLBtnLogin = findViewById(R.id.etLBtnLogin)
@@ -35,7 +35,7 @@ class BuyerLogin : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("Customers")
 
         etLBtnSignup.setOnClickListener {
-            val intent = Intent(this@BuyerLogin, Registration::class.java)
+            val intent = Intent(this@BuyerLogin, buyerRegistration::class.java)
             startActivity(intent)
         }
 
