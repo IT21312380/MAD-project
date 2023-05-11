@@ -32,6 +32,7 @@ class CartActivity : AppCompatActivity(), ICartLoadListner {
     private lateinit var txtTotal: TextView
     private lateinit var mainLayout: View
     private lateinit var btnsubmit: Button
+    private var cusId=""
 
 
     override fun onStart() {
@@ -65,6 +66,7 @@ class CartActivity : AppCompatActivity(), ICartLoadListner {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
+         cusId = intent?.getStringExtra("cusId") ?: ""
         // Initialize recycler_cart here
         recycler_cart = findViewById(R.id.recycler_cart)
         //initialize
@@ -72,32 +74,29 @@ class CartActivity : AppCompatActivity(), ICartLoadListner {
         // Initialize txtTotal
         txtTotal = findViewById(R.id.txtTotal)
 
+        cartLoadListener = this
         init()
         loadCartFromFirebase()
 
     }
 
     private fun loadCartFromFirebase() {
-        val cartModels:MutableList<Cartmodel> = ArrayList()
-        FirebaseDatabase.getInstance()
-            .getReference("Cart")
-            .child("UNIQUE_USER_ID")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    for(cartSnapshot in snapshot.children)
-                    {
-                        val cartModel = cartSnapshot.getValue(Cartmodel::class.java)
-                        cartModel!!.key = cartSnapshot.key
-                        cartModels.add(cartModel)
-                    }
-                    cartLoadListener!!.onLoadCartSuccess(cartModels)
+        val cartModels: MutableList<Cartmodel> = mutableListOf()
+        val databaseRef = FirebaseDatabase.getInstance().getReference("Cart").child(cusId)
+        databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(cartSnapshot in snapshot.children) {
+                    val cartModel = cartSnapshot.getValue(Cartmodel::class.java)
+                    cartModel?.key = cartSnapshot.key
+                    cartModel?.let { cartModels.add(it) }
                 }
+                cartLoadListener?.onLoadCartSuccess(cartModels)
+            }
 
-                override fun onCancelled(error: DatabaseError) {
-                    cartLoadListener!!.onLoadCartFailed(error.message)
-                }
-
-            })
+            override fun onCancelled(error: DatabaseError) {
+                cartLoadListener?.onLoadCartFailed(error.message)
+            }
+        })
     }
 
     private fun init()
@@ -116,7 +115,7 @@ var sum = 0.0
             sum+=cartModel!!.totalPrice
         }
         txtTotal.text = java.lang.StringBuilder("Total Rs. ").append(sum)
-        val adapter = MyCartAdapter(this,cartModelList)
+        val adapter = MyCartAdapter(this,cartModelList,cusId)
         recycler_cart!!.adapter = adapter
 
 
