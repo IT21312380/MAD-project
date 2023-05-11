@@ -7,7 +7,31 @@
     android:background="#E1DAD6D6"
     android:backgroundTint="#FEFFFE"
     tools:context=".activities.InsertionActivity">
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#417306"
+        android:orientation="horizontal"
+        android:weightSum="16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="14"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_marginStart="20dp"
+            android:text="Leave Your Comment Here..."
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
     <EditText
         android:id="@+id/etCusName"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
@@ -25,12 +49,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/panel" />
 
     <EditText
         android:id="@+id/etCusComment"
-        android:layout_width="378dp"
-        android:layout_height="152dp"
+        android:layout_width="388dp"
+        android:layout_height="213dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="18dp"
@@ -74,34 +98,23 @@
         android:numStars="5"
         android:progressBackgroundTint="#A39F9F"
         android:progressTint="#FFC107"
-        android:rating="3"
+        android:rating="2"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/etCusName" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="7dp"
-        android:text="Leave Your Comment Here..."
-        android:textColor="#0DA313"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="51dp"
         android:layout_height="31dp"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginStart="141dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/panel"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_create_24" />
 
@@ -114,7 +127,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/etRt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/panel"
         app:srcCompat="@drawable/t" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,7 +65,7 @@ class Registration : AppCompatActivity() {
         val phoneNumber = etRPhoneNumber.text.toString()
         val email = etREmail.text.toString()
         val password = etRPassword.text.toString()
-
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
         if (name.isEmpty()){
             etRName.error = "Please enter Your Name"
             return;
@@ -82,8 +82,12 @@ class Registration : AppCompatActivity() {
             etRPhoneNumber.error = "Please enter your Phone Number"
             return;
         }
-        else if (email.isEmpty()){
-            etREmail.error = "Please enter your Email"
+
+        else if (email.isEmpty()) {
+            etREmail.error = "Please enter your email"
+            return;
+        } else if (!email.matches(emailPattern.toRegex())) {
+            etREmail.error = "Please enter a valid email address"
             return;
         }
         else if (password.isEmpty()){

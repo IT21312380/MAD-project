@@ -50,9 +50,7 @@ class Payment : AppCompatActivity() {
 
             savePaymentData(paymentId)
 
-            val intent = Intent(this, Bill::class.java)
-            intent.putExtra("paymentId", paymentId)
-            startActivity(intent)
+
         }
 
     }
@@ -61,7 +59,7 @@ class Payment : AppCompatActivity() {
         val amount = etAmount.text.toString().toDoubleOrNull()
 
         if (amount != null) {
-            val totalAmount = amount + (amount * 0.05)
+            val totalAmount = amount + (amount * 0.1)
             etTotalAmount.setText(totalAmount.toString())
         } else {
             etTotalAmount.setText("")
@@ -86,39 +84,43 @@ class Payment : AppCompatActivity() {
             etCardNumber.error = "Card Number is required"
             return;
         }
-        if (cardExpDate.isEmpty()){
+        else if  (cardExpDate.isEmpty()){
             etExpiryDate.error = "Please enter Expire Date of Your Card"
             return;
         }
-        if (cvc.isEmpty()){
+        else if (cvc.isEmpty()){
             etCvc.error = "Please enter CVC"
             return;
         }
-        if (amount.isEmpty()){
+        else if (amount.isEmpty()){
             etAmount.error = "Please enter Amount"
             return;
         }
-        if (totalAmount.isEmpty()){
+        else if (totalAmount.isEmpty()){
             etTotalAmount.error = "Please calculate total amount"
             return;
         }
-        if (deliveryDate.isEmpty()){
+        else if (deliveryDate.isEmpty()){
             etdDateInput.error = "Please enter Delivery Date"
             return;
         }
 
-        if (etCardNumber.length() < 12) {
+        else if (etCardNumber.length() < 12) {
             etCardNumber.error = "Enter a valid card number"
             return;
         }
 
-        if (etCvc.length() < 3) {
+        else if (etCvc.length() < 3) {
             etCvc.error = "Enter a valid CVC"
             return;
         }
-//        else (input.length() > 10) {
-//            editText.setError("Input must be at most 10 characters");
-//        }
+        else{
+            val intent = Intent(this, Bill::class.java)
+            intent.putExtra("paymentId", paymentId)
+            startActivity(intent)
+        }
+
+//
 
         val payment = PaymentModel(
             paymentId,

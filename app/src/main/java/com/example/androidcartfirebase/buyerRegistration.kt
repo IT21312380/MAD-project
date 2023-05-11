@@ -29,7 +29,7 @@ class buyerRegistration : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.buyregister)
         etRName = findViewById(R.id.etRName)
         etRNIC = findViewById(R.id.etRNIC)
         etRAddress = findViewById(R.id.etRAddress)
@@ -101,7 +101,7 @@ class buyerRegistration : AppCompatActivity() {
             return;
         }
         else{
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, BuyerLogin::class.java)
             intent.putExtra("cusId", cusId)
             startActivity(intent)
         }

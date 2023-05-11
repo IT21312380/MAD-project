@@ -19,7 +19,7 @@ data class PaymentModel(
 
     fun calculateTotalAmount(): Double {
         val originalAmount = amount?.toDoubleOrNull() ?: 0.0
-        val additionalAmount = originalAmount * 0.05 // 5% additional amount
+        val additionalAmount = originalAmount * 0.1 // 5% additional amount
         return originalAmount + additionalAmount
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration">
+    tools:context=".buyerRegistration">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -82,7 +82,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Enter Username"
+        android:hint="Enter Email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Don't have an account? Sign up here"
+        android:text="As A Buyer You Don't have an account?             Feel Free to Sign up here..."
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold|italic"

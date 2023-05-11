@@ -25,11 +25,11 @@
 
     <LinearLayout
 
-        android:layout_width="0dp"
+        android:layout_width="185dp"
         android:layout_height="match_parent"
-        android:weightSum="5"
         android:layout_weight="4"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="5">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -92,28 +92,28 @@
                 android:layout_marginEnd="33dp"
                 android:layout_marginRight="33dp"
                 android:layout_marginBottom="39dp"
+                android:singleLine="true"
                 android:text="$1"
-                android:textSize="20sp"
-                android:singleLine="true"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txthint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price per 1 Kg"
-                android:singleLine="true"
                 android:layout_marginTop="39dp"
+                android:singleLine="true"
+                android:text="Price per 1 Kg"
                 android:textSize="20sp" />
 
 
         </RelativeLayout>
 
         <ImageView
-    android:id="@+id/btnDelete"
-    android:src="@drawable/baseline_clear_24"
-    android:layout_weight="1"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"/>
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_clear_24" />
 
     </LinearLayout>
         </LinearLayout>

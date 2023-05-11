@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
     private lateinit var btnReview: ImageView
     private lateinit var btninsert :ImageView
     private lateinit var btnretriving :ImageView
+
 
     lateinit var drinkLoadListener: IDrinkLoadListener
     lateinit var cartLoadListener: ICartLoadListner
@@ -84,6 +86,25 @@ class MainActivity : AppCompatActivity(), IDrinkLoadListener,ICartLoadListner {
             val intent = Intent(this@MainActivity, FetchingActivity1::class.java)
             startActivity(intent)
         }
+        val logoutImageView: ImageView = findViewById(R.id.logout)
+
+        logoutImageView.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Logout")
+            builder.setMessage("Are you sure you want to log out?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                val intent = Intent(this@MainActivity, welcomelog::class.java)
+                startActivity(intent)
+
+            }
+            builder.setNegativeButton("Cancel") { dialog, _ ->
+                // User clicked Cancel, dismiss dialog
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
+        }
+
 
 
 

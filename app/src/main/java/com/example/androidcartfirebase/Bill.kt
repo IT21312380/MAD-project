@@ -30,11 +30,11 @@ class Bill : AppCompatActivity() {
 
         dbRef = FirebaseDatabase.getInstance().getReference("Payments").child(paymentId)
 
-        val etBGetPaymentID: EditText = findViewById(R.id.etBGetPaymentID)
+        val etBGetPaymentID: TextView = findViewById(R.id.etBGetPaymentID)
 //        val etBGetCardNumber: EditText = findViewById(R.id.etBGetCardNumber)
-        val etBGetAmount: EditText = findViewById(R.id.etBGetAmount)
-        val etBGetTotAmount: EditText = findViewById(R.id.etBGetTotAmount)
-        val etBGetDDate: EditText = findViewById(R.id.etBGetDDate)
+        val etBGetAmount: TextView = findViewById(R.id.etBGetAmount)
+        val etBGetTotAmount: TextView= findViewById(R.id.etBGetTotAmount)
+        val etBGetDDate: TextView = findViewById(R.id.etBGetDDate)
         etBBtnOk = findViewById(R.id.etBBtnOk)
 
         etBBtnOk.setOnClickListener {
