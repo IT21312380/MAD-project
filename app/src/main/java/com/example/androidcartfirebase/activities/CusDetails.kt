@@ -120,6 +120,8 @@ class CusDetails : AppCompatActivity() {
 
             Toast.makeText(applicationContext, "Customer Data Updated", Toast.LENGTH_LONG).show()
 
+            val intent = Intent(this, FetchingActivity::class.java)
+            startActivity(intent)
             //we are setting updated data to our textviews
             tvCusName.text = etCusName.text.toString()
             tvCusComment.text = etCusComment.text.toString()
