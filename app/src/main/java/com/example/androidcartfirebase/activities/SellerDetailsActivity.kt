@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.androidcartfirebase.model.InvenoryModel
-import com.example.androidcartfirebase.R
+
 import com.example.androidcartfirebase.activities.FetchingActivity1
+
 import com.google.firebase.database.FirebaseDatabase
 
 class SellerDetailsActivity : AppCompatActivity() {
@@ -24,8 +25,6 @@ class SellerDetailsActivity : AppCompatActivity() {
     private lateinit var btnDelete:Button
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seller_details)
@@ -33,23 +32,25 @@ class SellerDetailsActivity : AppCompatActivity() {
         initView()
         setValuesToView()
 
+        val selId = intent.getStringExtra("key").toString()
+
+
         btnUpdate.setOnClickListener{
-           openUpdateDialog(
-               intent.getStringExtra("selId").toString(),
-               intent.getStringExtra("sellerName").toString()
-           )
-        }
-        btnDelete.setOnClickListener{
-            deleteRecord(
-               intent.getStringExtra("selId").toString()
+            openUpdateDialog(
+                selId,
+                intent.getStringExtra("sellerName").toString()
             )
         }
+        btnDelete.setOnClickListener{
+            deleteRecord(selId)
+        }
     }
+
     private fun deleteRecord(
         id:String
     )
     {
-        val dbRef = FirebaseDatabase.getInstance().getReference("seller").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("Drink").child(id)
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
@@ -62,7 +63,6 @@ class SellerDetailsActivity : AppCompatActivity() {
 
         }
     }
-
     private fun initView() {
         tvsellName = findViewById(R.id.tvsellName)
         tvnoofunits = findViewById(R.id.tvnoofunits)
@@ -73,13 +73,15 @@ class SellerDetailsActivity : AppCompatActivity() {
         btnDelete = findViewById(R.id.btnDelete)
 
     }
-
     private fun setValuesToView() {
         tvsellName.text = intent.getStringExtra("sellerName")
         tvunitcost.text = intent.getStringExtra("unitPrice")
         tvnoofunits.text = intent.getStringExtra("noofunits")
         tvdiscription.text = intent.getStringExtra("sellerdiscription")
         etproductname.text = intent.getStringExtra("productName")
+
+        // get the Firebase Storage reference for the image
+
     }
 
     private fun openUpdateDialog(
@@ -87,11 +89,10 @@ class SellerDetailsActivity : AppCompatActivity() {
         empName:String,
     )
     {
-  val mDialog = AlertDialog.Builder(this)
-     val inflater = layoutInflater
+        val mDialog = AlertDialog.Builder(this)
+        val inflater = layoutInflater
         val mDialogView = inflater.inflate(R.layout.update_dialog1,null)
-
-    mDialog.setView(mDialogView)
+        mDialog.setView(mDialogView)
 
         val etSelName = mDialogView.findViewById<EditText>(R.id.etSellname)
         val noofunits = mDialogView.findViewById<EditText>(R.id.noofunits)
@@ -131,20 +132,23 @@ class SellerDetailsActivity : AppCompatActivity() {
             alertDialog.dismiss()
         }
 
+    }
+    private fun updateSellData(
+        selId: String,
+        selName: String,
+        noOfUnits: String,
+        unitCost: String,
+        description: String,
+        productName: String
+    ) {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("Drink").child(selId)
 
+        myRef.child("sellerName").setValue(selName)
+        myRef.child("noofunits").setValue(noOfUnits)
+        myRef.child("unitPrice").setValue(unitCost)
+        myRef.child("sellerdiscription").setValue(description)
+        myRef.child("productName").setValue(productName)
     }
 
-   private fun updateSellData(
-       id:String,
-       name:String,
-       ucost:String,
-       nounits:String,
-       discrip:String,
-       pname:String,
-   )
-   {
-       val dbRef = FirebaseDatabase.getInstance().getReference("seller").child(id)
-       val sellinfo = InvenoryModel(id,name,ucost,nounits,discrip,pname)
-       dbRef.setValue(sellinfo)
-   }
 }
